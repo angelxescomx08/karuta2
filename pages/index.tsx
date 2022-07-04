@@ -8,15 +8,14 @@ const Home: NextPage = () => {
     <div>
       <Head>
         <title>Karuta app</title>
-        <meta name='author' content='Jose Angel Hdz Rda'/>
-        <meta name="keywords" content='karuta, jose, angel, hdz, rda, chihayafuru, deporte, sport'/>
+        <meta name='author' content='Jose Angel Hdz Rda' />
+        <meta name="keywords" content='karuta, jose, angel, hdz, rda, chihayafuru, deporte, sport' />
         <meta name="description" content="Lista de cartas karuta" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <KarutaCarta/>
-        <KarutaSVG poema={cartas[0].poema}/>
+        {cartas.map(({ poema }, i) => <KarutaCarta key={i} poema={poema} />)}
       </main>
     </div>
   )

@@ -1,5 +1,14 @@
-export const KarutaCarta = () => {
+import { FC } from "react"
+import { KarutaSVG } from "./KarutaSVG"
+
+interface Props{
+  poema: string;
+}
+
+export const KarutaCarta:FC<Props> = ({poema}) => {
   return (
-    <div>KarutaCarta</div>
+    <article>
+      <KarutaSVG poema={poema}/>
+    </article>
   )
 }

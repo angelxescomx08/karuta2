@@ -14,7 +14,3 @@ a {
 * {
   box-sizing: border-box;
 }
-
-.small {
-  font: italic 20px sans-serif;
-}
