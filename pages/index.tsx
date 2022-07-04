@@ -1,5 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { KarutaCarta, KarutaSVG } from '../components'
+import { cartas } from '../utils'
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +15,8 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
+        <KarutaCarta/>
+        <KarutaSVG poema={cartas[0].poema}/>
       </main>
     </div>
   )
