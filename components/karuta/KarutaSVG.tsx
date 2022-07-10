@@ -6,23 +6,23 @@ interface Props {
 
 export const KarutaSVG: FC<Props> = ({ poema }) => {
     return (
-        <svg width={400} height={400}
+        <svg width="100%" height={400}
             xmlns="http://www.w3.org/2000/svg"
             style={{
                 backgroundColor: '#000',
-                color: '#fff'
+                color: '#fff',
             }}>
             <switch>
-                <foreignObject x="0" y="0" width="400" height="400">
+                <foreignObject width="100%" height="100%">
                     <div style={{
                         display: 'flex',
                         alignItems: 'center',
                         width: '100%',
                         height: '100%',
-                        padding: '10px',
+                        padding: '1em',
                     }}>
                         <p style={{
-                            fontSize: '32px'
+                            fontSize: '1.7rem'
                         }}>{poema}</p>
                     </div>
                 </foreignObject>
