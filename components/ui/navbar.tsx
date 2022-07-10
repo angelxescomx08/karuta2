@@ -6,6 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import { useRouter } from 'next/router';
 
 interface Props{
     title: string;
@@ -54,6 +55,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export const SearchAppBar: React.FC<Props> = ({title}) =>{
+  const router = useRouter();
+  const handleClick = () =>{
+    router.push('/')
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
@@ -63,6 +68,8 @@ export const SearchAppBar: React.FC<Props> = ({title}) =>{
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            style={{cursor:'pointer'}}
+            onClick={handleClick}
           >
             {title}
           </Typography>

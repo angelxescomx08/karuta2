@@ -21,7 +21,7 @@ export const MainLayout: React.FC<Props> = ({children,title,keywords,description
         <title>{title}</title>
         <meta name='author' content='Jose Angel Hdz Rda' />
         <meta name="keywords" 
-          content={`karuta, jose, angel, hdz, rda, chihayafuru, deporte, sport${keywords?`, ${keywords}`:''}`} />
+          content={`karuta, chihayafuru, poems, deporte, sport${keywords?`, ${keywords}`:''}`} />
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
