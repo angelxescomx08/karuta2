@@ -5,23 +5,26 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { Carta } from "../../utils";
 
-interface Props {
-  poema: string;
+interface Props{
+  carta: Carta;
 }
 
-export const KarutaCarta: FC<Props> = ({ poema }) => {
+export const KarutaCarta: FC<Props> = ({ carta }) => {
+
+  const {japanese,id,english,silaba} = carta;
+
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card>
       <CardActionArea>
-        <KarutaSVG poema={poema}/>
+        <KarutaSVG poema={japanese}/>
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Lizard
+            #{id} - {silaba}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+            {english}
           </Typography>
         </CardContent>
       </CardActionArea>
