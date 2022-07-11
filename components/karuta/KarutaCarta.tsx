@@ -6,6 +6,7 @@ import { CardActionArea } from '@mui/material';
 import { Carta } from "../../utils";
 import { KarutaSVG } from './KarutaSVG';
 import { useRouter } from "next/router";
+import { useTheme } from '@mui/material/styles';
 
 interface Props{
   carta: Carta;
@@ -14,6 +15,7 @@ interface Props{
 export const KarutaCarta: FC<Props> = ({ carta }) => {
 
   const router = useRouter();
+  const theme = useTheme();
   const {japanese,id,english,silaba} = carta;
 
   const handleClick = ()=>{
@@ -25,10 +27,16 @@ export const KarutaCarta: FC<Props> = ({ carta }) => {
       <CardActionArea>
         <KarutaSVG poema={japanese}/>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography 
+            gutterBottom 
+            variant="h5" 
+            component="div"
+            style={{color: theme.palette.text.primary}}>
             #{id} - {silaba}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography 
+            variant="body2" 
+            style={{color: theme.palette.text.secondary}}>
             {english}
           </Typography>
         </CardContent>

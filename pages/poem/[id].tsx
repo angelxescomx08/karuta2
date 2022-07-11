@@ -1,8 +1,9 @@
-import { NextPage } from 'next'
-import { GetStaticProps } from 'next'
-import { GetStaticPaths } from 'next'
+import { NextPage } from 'next';
+import { GetStaticProps } from 'next';
+import { GetStaticPaths } from 'next';
 import { MainLayout } from '../../components/layouts';
 import { Carta, cartas } from '../../utils';
+import { useTheme } from '@mui/material/styles';
 
 interface Props{
     carta: Carta;
@@ -10,14 +11,17 @@ interface Props{
 
 const PoemPage: NextPage<Props> = ({carta}) => {
 
-    const {id,silaba} = carta;
+    const { id, silaba } = carta;
+    const theme = useTheme();
 
     return (
         <MainLayout
             title={`Karuta app | poem ${id} ${silaba}`}
             description={`karuta poem ${id} ${silaba}`}
-            keywords={`poem, `}>
-            <h1>Poem {id}</h1>
+            keywords={`poem`}>
+            <h1 style={{
+                color: theme.palette.text.primary
+            }}>Poem {id}</h1>
         </MainLayout>
     )
 }
