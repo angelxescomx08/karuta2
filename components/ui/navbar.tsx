@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { useRouter } from 'next/router';
+import { BotonTema } from './BotonTema';
 
 interface Props{
     title: string;
@@ -73,6 +74,7 @@ export const SearchAppBar: React.FC<Props> = ({title}) =>{
           >
             {title}
           </Typography>
+          <BotonTema/>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />

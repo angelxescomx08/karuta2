@@ -1,20 +1,38 @@
-import type { AppProps } from 'next/app'
+import * as React from 'react';
+import type { AppProps } from 'next/app';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import '../styles/globals.css'
 
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-  },
-});
-
+import { ColorModeContext } from '../context';
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [mode, setMode] = React.useState<'light' | 'dark'>('dark');
+  const colorMode = React.useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    [],
+  );
+
+  const theme = React.useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode,
+        },
+      }),
+    [mode],
+  );
+
   return (
-    <ThemeProvider theme={darkTheme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ColorModeContext.Provider>
   )
 }
 
