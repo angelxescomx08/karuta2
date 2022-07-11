@@ -11,7 +11,7 @@ interface Props {
 }
 
 const style = {
-  padding: '5em 1em'
+  padding: '6em 1em'
 }
 
 export const MainLayout: React.FC<Props> = ({ children, title, keywords, description }) => {

@@ -24,9 +24,7 @@ export const GridCartas = () => {
             map(calcularPorcentajeScroll)
         )
         .subscribe((porcentaje)=>{
-            if(porcentaje>60 && limit<100){
-                setLimit(l=>l+10)
-            }
+            if(porcentaje>60 && limit<100){ setLimit(l=>l+10) }
         });
 
         return ()=>{

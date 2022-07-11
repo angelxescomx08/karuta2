@@ -8,9 +8,10 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { useRouter } from 'next/router';
 import { BotonTema } from './BotonTema';
+import { useTheme } from '@mui/material/styles';
 
-interface Props{
-    title: string;
+interface Props {
+  title: string;
 }
 
 const Search = styled('div')(({ theme }) => ({
@@ -55,11 +56,15 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export const SearchAppBar: React.FC<Props> = ({title}) =>{
+export const SearchAppBar: React.FC<Props> = ({ title }) => {
+
   const router = useRouter();
-  const handleClick = () =>{
+  const theme = useTheme();
+
+  const handleClick = () => {
     router.push('/')
   }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
@@ -69,12 +74,12 @@ export const SearchAppBar: React.FC<Props> = ({title}) =>{
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-            style={{cursor:'pointer'}}
+            style={{ cursor: 'pointer', color: theme.palette.text.primary }}
             onClick={handleClick}
           >
             {title}
           </Typography>
-          <BotonTema/>
+          <BotonTema />
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
