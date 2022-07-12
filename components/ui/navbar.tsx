@@ -68,13 +68,13 @@ export const SearchAppBar: React.FC<Props> = ({ title }) => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="fixed">
-        <Toolbar>
+        <Toolbar style={{backgroundColor: '#121212'}}>
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-            style={{ cursor: 'pointer', color: theme.palette.text.primary }}
+            style={{ cursor: 'pointer', color: '#fff' }}
             onClick={handleClick}
           >
             {title}

@@ -14,7 +14,6 @@ export const BotonTema = () => {
         <Box
             sx={{
                 display: 'flex',
-                width: '100%',
                 alignItems: 'center',
                 justifyContent: 'center',
                 color: 'text.primary',
@@ -22,8 +21,7 @@ export const BotonTema = () => {
                 p: 3,
             }}
         >
-            {theme.palette.mode}
-            <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+            <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} style={{color: '#fff'}}>
                 {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
         </Box>
