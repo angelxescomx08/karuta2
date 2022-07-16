@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import Head from "next/head";
 import { useTheme } from '@mui/material/styles';
-import { SearchAppBar } from '../ui';
+import { SearchAppBar } from '../ui/Navbar';
 
 interface Props {
   children: ReactNode;
