@@ -7,7 +7,6 @@ interface Props {
 
 export const KarutaSVG: FC<Props> = ({ poema }) => {
     const theme = useTheme();
-    console.log(theme);
     return (
         <svg width="100%" height={400}
             xmlns="http://www.w3.org/2000/svg"

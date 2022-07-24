@@ -1,12 +1,17 @@
 import { FC } from "react";
+
+import { useRouter } from "next/router";
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+
 import { Carta } from "../../utils";
 import { KarutaSVG } from './KarutaSVG';
-import { useRouter } from "next/router";
-import { useTheme } from '@mui/material/styles';
+
+
 
 interface Props{
   carta: Carta;

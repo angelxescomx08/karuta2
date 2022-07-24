@@ -4,6 +4,7 @@ import { GetStaticPaths } from 'next';
 import { MainLayout } from '../../components/layouts';
 import { Carta, cartas } from '../../utils';
 import { useTheme } from '@mui/material/styles';
+import { PoemLayout } from '../../components/layouts/PoemLayout';
 
 interface Props{
     carta: Carta;
@@ -19,9 +20,9 @@ const PoemPage: NextPage<Props> = ({carta}) => {
             title={`Karuta app | poem ${id} ${silaba}`}
             description={`karuta poem ${id} ${silaba}`}
             keywords={`poem`}>
-            <h1 style={{
-                color: theme.palette.text.primary
-            }}>Poem {id}</h1>
+            
+            <PoemLayout carta={carta}/>
+
         </MainLayout>
     )
 }
