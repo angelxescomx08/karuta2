@@ -13,7 +13,7 @@ import { KarutaSVG } from './KarutaSVG';
 
 
 
-interface Props{
+interface Props {
   carta: Carta;
 }
 
@@ -21,27 +21,27 @@ export const KarutaCarta: FC<Props> = ({ carta }) => {
 
   const router = useRouter();
   const theme = useTheme();
-  const {japanese,id,english,silaba} = carta;
+  const { japanese, id, english, silaba, name } = carta;
 
-  const handleClick = ()=>{
-    router.push(`/poem/${id}`);
+  const handleClick = () => {
+    router.push(`/poem/name/${name}`);
   }
 
   return (
     <Card onClick={handleClick}>
       <CardActionArea>
-        <KarutaSVG poema={japanese}/>
+        <KarutaSVG poema={japanese} />
         <CardContent>
-          <Typography 
-            gutterBottom 
-            variant="h5" 
+          <Typography
+            gutterBottom
+            variant="h5"
             component="div"
-            style={{color: theme.palette.text.primary}}>
+            style={{ color: theme.palette.text.primary }}>
             #{id} - {silaba}
           </Typography>
-          <Typography 
-            variant="body2" 
-            style={{color: theme.palette.text.secondary}}>
+          <Typography
+            variant="body2"
+            style={{ color: theme.palette.text.secondary }}>
             {english}
           </Typography>
         </CardContent>

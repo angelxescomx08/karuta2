@@ -3,25 +3,23 @@ import { GetStaticProps } from 'next';
 import { GetStaticPaths } from 'next';
 import { MainLayout } from '../../components/layouts';
 import { Carta, cartas } from '../../utils';
-import { useTheme } from '@mui/material/styles';
-import { PoemLayout } from '../../components/layouts/PoemLayout';
+import { PoemLayout } from '../../components/layouts';
 
-interface Props{
+interface Props {
     carta: Carta;
 }
 
-const PoemPage: NextPage<Props> = ({carta}) => {
+const PoemPage: NextPage<Props> = ({ carta }) => {
 
     const { id, silaba } = carta;
-    const theme = useTheme();
 
     return (
         <MainLayout
             title={`Karuta app | poem ${id} ${silaba}`}
             description={`karuta poem ${id} ${silaba}`}
             keywords={`poem`}>
-            
-            <PoemLayout carta={carta}/>
+
+            <PoemLayout carta={carta} />
 
         </MainLayout>
     )
@@ -33,7 +31,7 @@ const PoemPage: NextPage<Props> = ({carta}) => {
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
     return {
-        paths: cartas.map(({id})=>({
+        paths: cartas.map(({ id }) => ({
             params: {
                 id
             }
@@ -48,10 +46,10 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 //- The data can be publicly cached (not user-specific).
 //- The page must be pre-rendered (for SEO) and be very fast — getStaticProps generates HTML and JSON files, both of which can be cached by a CDN for performance.
 
-export const getStaticProps: GetStaticProps = async ({params}) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
 
-    const {id} = params as {id: string};
-    const carta = cartas.find((carta)=> carta.id === id)
+    const { id } = params as { id: string };
+    const carta = cartas.find((carta) => carta.id === id)
 
     return {
         props: {

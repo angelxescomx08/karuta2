@@ -14,6 +14,8 @@ const style = {
   padding: '6em 1em'
 }
 
+const origin = (typeof window === 'undefined') ? '' : window.location.origin;
+
 export const MainLayout: React.FC<Props> = ({ children, title, keywords, description }) => {
 
   const theme = useTheme();
@@ -26,6 +28,10 @@ export const MainLayout: React.FC<Props> = ({ children, title, keywords, descrip
         <meta name="keywords"
           content={`karuta, chihayafuru, poems, deporte, sport${keywords ? `, ${keywords}` : ''}`} />
         <meta name="description" content={description} />
+
+        <meta property="og:title" content={`Page of ${title}`} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={`${origin}/img/chihayafuru.jpg`} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
