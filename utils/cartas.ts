@@ -446,7 +446,7 @@ export const cartas = [
 		silaba: `Shino`,
 		romaji: `Shinoburedo Iro ni ide ni keri Waga koi wa Mono ya omou to Hito no tou made`,
 		english: `Though I would hide it, In my face it still appears — My fond, secret love. And now he questions me: Is something bothering you?`,
-		spanish: `Aunque lo escondería En mi cara todavía aparece Mi hallazgo, amor secreto. Y ahora me cuestiona: ¿Algo te esta molestando?`,
+		spanish: `Aunque lo escondería En mi cara todavía aparece Mi hallazgo, amor secreto. Y ahora el me cuestiona: ¿Algo te esta molestando?`,
 		author: `Taira no Kanemori`,
 		authorJapanese: "平兼盛(たいらのかねもり)",
 		japanese: "忍(しの)ぶれど 色(いろ)に出(い)でにけり わが恋(こ[ひ,い])は ものや思(おも)[ふ,う]と 人(ひと)の問(と)[ふ,う]まで"
