@@ -1,7 +1,7 @@
 'use client'
 import { NextPage } from 'next';
 import { MainLayout } from '../../components/layouts';
-import { Carta, cartas } from '../../utils';
+import { cartas } from '../../utils';
 import { PoemLayout } from '../../components/layouts';
 
 
