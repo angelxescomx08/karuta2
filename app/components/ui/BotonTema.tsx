@@ -1,4 +1,5 @@
-import * as React from 'react';
+'use client'
+import { useContext } from 'react';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
@@ -9,7 +10,7 @@ import { ColorModeContext } from '../../context';
 
 export const BotonTema = () => {
     const theme = useTheme();
-    const colorMode = React.useContext(ColorModeContext);
+    const colorMode = useContext(ColorModeContext);
     return (
         <Box
             sx={{
@@ -21,7 +22,7 @@ export const BotonTema = () => {
                 p: 3,
             }}
         >
-            <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} style={{color: '#fff'}}>
+            <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} style={{ color: '#fff' }}>
                 {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>
         </Box>

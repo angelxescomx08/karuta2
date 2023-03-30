@@ -2,7 +2,7 @@ import { FC } from "react"
 import { useTheme } from '@mui/material/styles';
 
 interface Props {
-    poema: string;
+    poema?: string;
 }
 
 export const KarutaSVG: FC<Props> = ({ poema }) => {

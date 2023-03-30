@@ -1,3 +1,5 @@
+'use client'
+
 import Grid from '@mui/material/Grid';
 import { useEffect, useState } from 'react';
 import { cartas } from '../../utils';

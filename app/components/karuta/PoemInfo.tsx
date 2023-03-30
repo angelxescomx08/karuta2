@@ -6,16 +6,16 @@ import { useTheme } from '@mui/material/styles';
 import { Carta } from "../../utils"
 
 interface Props {
-    carta: Carta;
+    carta?: Carta;
 }
 
 export const PoemInfo: FC<Props> = ({ carta }) => {
 
     const theme = useTheme();
-    const { japanese, id, english, silaba, spanish, author, authorJapanese, name } = carta;
+    const { japanese, id, english, silaba, spanish, author, authorJapanese, name } = carta!;
 
     return (
-        <article style={{maxHeight: '100%'}}>
+        <article style={{ maxHeight: '100%' }}>
             <Typography
                 gutterBottom
                 variant="h3"
