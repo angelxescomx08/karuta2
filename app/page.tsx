@@ -1,30 +1,21 @@
-'use client'
+import { type ReactElement } from 'react'
+import { MainContent } from './components/home/main-content'
+import { cartas, type Carta } from './data/cartas'
 
-import { type ReactNode, useState, useMemo } from 'react'
-import { Card } from './components/card'
-import { cartas } from './data/cartas'
-import { Header } from './layouts/ui/header'
-import { useDebouncedValue } from '@mantine/hooks'
+const getSuggestions = async (cartas: Carta[]): Promise<string[]> => {
+  const names = async ():Promise<string[]> => {
+    return cartas.map(carta => carta.name)
+  }
+  const numbers = async ():Promise<string[]> => {
+    return cartas.map(carta => `${carta.id}. ${carta.silaba}`)
+  }
 
-export default function Home (): ReactNode {
-  const [search,setSearch] = useState<string>("")
-  const [debouncedValue] = useDebouncedValue(search,400)
+  return Array.from(new Set([...await names(), ...await numbers()]))
+}
 
-  const results = useMemo(() => {
-    return cartas
-      .filter(carta => `${carta.id}. ${carta.silaba}`
-        .includes(debouncedValue) || carta.name.includes(debouncedValue))
-      .map((carta) => (
-        <Card key={carta.id} carta={carta} />
-      ))
-  }, [debouncedValue])
-
+export default async function Home (): Promise<ReactElement> {
+  const data = await getSuggestions(cartas)
   return (
-    <>
-      <Header value={search} onChange={(value)=>{ setSearch(value ?? ""); }} />
-      <main className="grid grid-cols-12 container m-auto gap-5 py-5 px-2">
-        {results}
-      </main>
-    </>
+    <MainContent data={data} />
   )
 }
