@@ -12,7 +12,7 @@ export const Card = ({ carta }: props): ReactNode => {
         {carta.japanese}
       </p>
       <div className='mt-5'>
-        <p className='text-white/60 text-xl'> {carta.silaba} </p>
+        <p className='text-white/60 text-xl'> {carta.id}. {carta.silaba} </p>
         <p className='text-white/50 text-sm'> {carta.english} </p>
       </div>
     </article>

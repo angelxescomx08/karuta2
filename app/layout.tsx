@@ -20,7 +20,9 @@ export default function RootLayout ({
 }): ReactNode {
   return (
     <html lang="en">
-      <body className={`${roboto.className} bg-fondo`}>{children}</body>
+      <body className={`${roboto.className} bg-fondo`}>
+        {children}
+      </body>
     </html>
   )
 }

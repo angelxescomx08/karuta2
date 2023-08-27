@@ -8,7 +8,8 @@
     "standard-with-typescript",
     "plugin:react/recommended",
     "next",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "eslint-config-prettier"
   ],
   "parserOptions": {
     "ecmaVersion": "latest",
