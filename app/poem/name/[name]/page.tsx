@@ -1,10 +1,10 @@
-import { cartas } from '@/app/data/cartas'
+import { cartasArray } from '@/app/data/cartas'
 import { getCardBySilaba } from '@/app/helpers/get-card'
 import { type ReactElement } from 'react'
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  return cartas.map((card) => ({
+  return cartasArray.map((card) => ({
     name: card.name,
   }))
 }

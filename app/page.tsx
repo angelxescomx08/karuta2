@@ -1,6 +1,6 @@
 import { type ReactElement } from 'react'
 import { MainContent } from './components/home/main-content'
-import { cartas, type Carta } from './data/cartas'
+import { type Carta, cartasArray } from './data/cartas'
 
 const getSuggestions = async (cartas: Carta[]): Promise<string[]> => {
   const names = async ():Promise<string[]> => {
@@ -14,7 +14,7 @@ const getSuggestions = async (cartas: Carta[]): Promise<string[]> => {
 }
 
 export default async function Home (): Promise<ReactElement> {
-  const data = await getSuggestions(cartas)
+  const data = await getSuggestions(cartasArray)
   return (
     <MainContent data={data} />
   )

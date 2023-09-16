@@ -4,7 +4,7 @@ import { type ReactElement, useState, useMemo } from 'react'
 import { useDebouncedValue } from '@mantine/hooks'
 import { Card } from '../card'
 import { Header } from '@/app/layouts/ui/header'
-import { cartas } from '@/app/data/cartas'
+import { cartasArray } from '@/app/data/cartas'
 
 interface props {
   data: string[]
@@ -15,7 +15,7 @@ export const MainContent = ({data}:props): ReactElement => {
   const [debouncedValue] = useDebouncedValue(search,400)
 
   const results = useMemo(() => {
-    return cartas
+    return cartasArray
       .filter(carta => `${carta.id}. ${carta.silaba}`
         .includes(debouncedValue) || carta.name.includes(debouncedValue))
       .map((carta) => (

@@ -10,7 +10,7 @@ export interface Carta {
 	japanese: string;
 }
 
-export const cartas = [
+export const cartasArray = [
   {
     id: `1`,
     name: `Aki`,
@@ -1112,3 +1112,5 @@ export const cartas = [
     japanese: "ももしきや 古(ふる)き軒端(のきば)の しのぶにも な[ほ,お]あまりある 昔(むかし)なりけり"
   }
 ]
+
+export const cartas = new Map<string,Carta>(cartasArray.map(card=>([card.silaba,card])))
