@@ -10,7 +10,7 @@ export interface Carta {
 	japanese: string;
 }
 
-export const cartasArray = [
+export const cartasArray: Carta[] = [
   {
     id: `1`,
     name: `Aki`,
