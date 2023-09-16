@@ -1,6 +1,14 @@
+import { cartas } from '@/app/data/cartas'
 import { getCardBySilaba } from '@/app/helpers/get-card'
 import { HeaderSimple } from '@/app/layouts/ui/header-simple'
 import { type ReactElement } from 'react'
+
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  return cartas.map((card) => ({
+    name: card.name,
+  }))
+}
 
 const PoemName = async ({
   params,
