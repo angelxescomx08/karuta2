@@ -6,5 +6,6 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  }
+  },
+  "cSpell.words": ["Chihayafuru", "Karuta", "Radilla"]
 }
