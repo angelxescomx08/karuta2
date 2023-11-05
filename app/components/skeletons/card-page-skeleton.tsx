@@ -1,7 +1,7 @@
 'use client'
 import { Skeleton } from '@mantine/core'
 
-const Loading = () => {
+const CardPageSkeleton = () => {
   return (
     <>
       <div className='col-span-12 md:col-span-4'>
@@ -50,4 +50,4 @@ const Loading = () => {
   )
 }
 
-export default Loading
+export default CardPageSkeleton
