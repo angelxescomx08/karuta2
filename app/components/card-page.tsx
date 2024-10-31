@@ -1,4 +1,3 @@
-import React, { use } from 'react'
 import { getCardByNameOrId } from '../helpers/get-card';
 
 interface Props {
@@ -7,7 +6,7 @@ interface Props {
 }
 
 export const CardPage = ({id,name}: Props) => {
-  const carta = use(getCardByNameOrId(id,name))
+  const carta = getCardByNameOrId(id,name)
   return (
     <>
       <div className='col-span-12 md:col-span-4'>
