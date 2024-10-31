@@ -11,7 +11,8 @@ export const Header =  (props: props): ReactElement => {
       <SearchInput 
         className='w-full sm:w-80' 
         placeholder='Search...' 
-        {...props} />
+        {...props} 
+      />
     </nav>
   )
 }

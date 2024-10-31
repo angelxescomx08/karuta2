@@ -24,7 +24,11 @@ export const MainContent = ({data}:props): ReactElement => {
   }, [debouncedValue])
   return (
     <>
-      <Header data={data} value={search} onChange={(value)=>{ setSearch(value ?? ""); }} />
+      <Header 
+        data={data} 
+        value={search} 
+        onChange={(value)=>{ setSearch(value ?? ""); }} 
+      />
       <main className="grid grid-cols-12 container m-auto gap-5 py-5 px-2">
         {results}
       </main>
