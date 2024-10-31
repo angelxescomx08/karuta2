@@ -4,13 +4,13 @@ import { CardLayout } from '@/app/layouts/CardLayout'
 import { getCardBySilaba } from '@/app/helpers/get-card'
 
 interface Params {
-  params: {
+  params: Promise<{
     name: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: Params ): Promise<Metadata> {
-  const {name} = params
+  const {name} = await params
   const card = await getCardBySilaba(name)
   return {
     title: `Karuta App | ${name}`,
