@@ -1,35 +1,23 @@
-import { getCardById } from '@/app/helpers/get-card'
-import { HeaderSimple } from '@/app/layouts/ui/header-simple'
-import { type ReactElement } from 'react'
+import { CardPage } from '@/app/components/card-page';
+import { cartas } from '@/app/data/cartas';
+import { use } from 'react'
 
-const PoemId = async ({
+export async function generateStaticParams() {
+  const cards = Array.from(cartas.values())
+ 
+  return cards.map((cards) => ({
+    id: cards.id,
+  }))
+}
+
+const PoemId = ({
   params,
 }: {
-  params: { id: string };
-}): Promise<ReactElement> => {
-  const carta = await getCardById(params.id)
+  params: Promise<{ id: string }>;
+}) => {
+  const { id } = use(params)
   return (
-    <>
-      <HeaderSimple />
-      <main className='grid grid-cols-12 container m-auto gap-5 py-5 px-2'>
-        <div className='col-span-12 md:col-span-4'>
-          <p className='text-white/70 font-bold text-2xl [text-wrap] '>
-            {carta.japanese}
-          </p>
-          <p className='text-white/50 text-xl'> Romaji: {carta.romaji} </p>
-          <p className='text-white/50 text-xl'> Author (Kanjis): {carta.authorJapanese} </p>
-          <p className='text-white/50 text-xl'> Author: {carta.author} </p>
-          <p className='text-white/50 text-xl'> Poem name: {carta.name} </p>
-        </div>
-        <div className='col-span-12 md:col-span-8'>
-
-          <p className='text-white/60 text-2xl'> {carta.id}. {carta.silaba} </p>
-          <p className='text-white/50 text-xl'> {carta.english} </p>
-          <p className='text-white/50 text-xl'> {carta.spanish} </p>
-        
-        </div>
-      </main>
-    </>
+    <CardPage id={id}  />
   )
 }
 

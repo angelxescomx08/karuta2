@@ -1,19 +1,23 @@
 import { CardPage } from '@/app/components/card-page'
-import CardPageSkeleton from '@/app/components/skeletons/card-page-skeleton'
-import { Suspense, use } from 'react'
+import { cartas } from '@/app/data/cartas'
+import { use } from 'react'
+
+export async function generateStaticParams() {
+  const cards = Array.from(cartas.values())
+ 
+  return cards.map((cards) => ({
+    name: cards.name,
+  }))
+}
 
 const PoemName = ({
   params,
 }: {
   params: Promise<{ name: string }>;
 }) => {
-  
   const { name } = use(params)
-
   return (
-    <Suspense fallback={<CardPageSkeleton />}>
-      <CardPage name={name} />
-    </Suspense>
+    <CardPage name={name} />
   )
 }
 
