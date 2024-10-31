@@ -1,12 +1,18 @@
 import './globals.css'
+import '@mantine/core/styles.css';
 import { type ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
+import { createTheme, MantineProvider } from '@mantine/core'
 
 const roboto = Roboto({
   weight: '400',
   subsets: ['latin']
 })
+
+const theme = createTheme({
+  /** Put your mantine theme override here */
+});
 
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -44,7 +50,9 @@ export default function RootLayout ({
   return (
     <html lang="en">
       <body className={`${roboto.className} bg-fondo`}>
-        {children}
+        <MantineProvider theme={theme}>
+          {children}
+        </MantineProvider>
       </body>
     </html>
   )
