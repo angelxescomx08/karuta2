@@ -8,4 +8,10 @@ describe('getSuggestions', () => {
 
     expect(suggestions).toBeInstanceOf(Array)
   })
+
+  it("Should have 188 suggestions",async ()=>{
+    const cards = Array.from(cartas.values())
+    const suggestions = await getSuggestions(cards)
+    expect(suggestions.length).toBe(188)
+  })
 })
