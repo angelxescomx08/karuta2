@@ -1,21 +1,19 @@
 import { type ReactElement } from 'react'
 import { MainContent } from './components/home/main-content'
-import { type Carta, cartas } from './data/cartas'
+import { cartas } from './data/cartas'
+import { MantineProvider , createTheme} from '@mantine/core'
+import { getSuggestions } from './helpers/get-suggestions';
 
-const getSuggestions = async (cartas: Carta[]): Promise<string[]> => {
-  const suggestions = []
 
-  for (const carta of cartas) {
-    suggestions.push(carta.name)
-    suggestions.push(`${carta.id}. ${carta.silaba}`)
-  }
-
-  return Array.from(new Set(suggestions))
-}
+const theme = createTheme({
+  /** Put your mantine theme override here */
+});
 
 export default async function Home (): Promise<ReactElement> {
   const data = await getSuggestions( Array.from(cartas.values()) )
   return (
-    <MainContent data={data} />
+    <MantineProvider theme={theme}>
+      <MainContent data={data} />
+    </MantineProvider>
   )
 }

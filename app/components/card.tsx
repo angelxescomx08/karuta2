@@ -12,7 +12,9 @@ export const Card = ({ carta }: props): ReactNode => {
     router.push(`/poem/name/${carta.silaba}`)
   }
   return (
-    <article className='col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 bg-fondo-claro rounded-md p-5 flex flex-col justify-between cursor-pointer' onClick={handleClick}>
+    <article 
+      className='col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 bg-fondo-claro rounded-md p-5 flex flex-col justify-between cursor-pointer' 
+      onClick={handleClick}>
       <p className='text-white/70 font-bold text-2xl [text-wrap] '>
         {carta.japanese}
       </p>
