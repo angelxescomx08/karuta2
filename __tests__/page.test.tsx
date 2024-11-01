@@ -1,6 +1,6 @@
 import Home from "@/app/page";
 import { createTheme, MantineProvider } from "@mantine/core";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 
 jest.mock("next/navigation",()=>({
   useRouter: jest.fn().mockReturnValue({
@@ -24,15 +24,16 @@ jest.mock("@mantine/hooks",()=>({
 jest.mock("@mantine/core",()=>({
   MantineProvider: jest.fn().mockImplementation(({children})=>children),
   createTheme: jest.fn().mockReturnValue({}),
+  Autocomplete: jest.fn().mockReturnValue(<div></div>),
 }))
 
 const theme = createTheme({})
 
 describe("Page", () => {
   it("Should render", async () => {
-    // render(<MantineProvider theme={theme}>
-    //   <Home />
-    // </MantineProvider>);
-    expect(true).toBe(true);
+    render(<MantineProvider theme={theme}>
+      {await Home()}
+    </MantineProvider>);
+    expect(screen.getByRole("main")).toBeDefined();
   });
 });
