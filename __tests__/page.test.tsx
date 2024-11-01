@@ -1,4 +1,5 @@
 import Home from "@/app/page";
+import { createTheme, MantineProvider } from "@mantine/core";
 import { render } from "@testing-library/react";
 
 jest.mock("next/navigation",()=>({
@@ -25,9 +26,13 @@ jest.mock("@mantine/core",()=>({
   createTheme: jest.fn().mockReturnValue({}),
 }))
 
+const theme = createTheme({})
+
 describe("Page", () => {
   it("Should render", async () => {
-    // render(await Home());
+    // render(<MantineProvider theme={theme}>
+    //   <Home />
+    // </MantineProvider>);
     expect(true).toBe(true);
   });
 });
