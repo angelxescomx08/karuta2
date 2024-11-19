@@ -11,3 +11,15 @@ yarn dev
 # or
 pnpm dev
 ```
+
+## Crear una imagen de Docker
+
+```bash
+docker build -t karuta2 .
+```
+
+## Correr la imagen de Docker
+
+```bash
+docker container run -p 3000:3000 karuta2
+```
