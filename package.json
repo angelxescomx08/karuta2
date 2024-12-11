@@ -13,9 +13,6 @@
   "dependencies": {
     "@mantine/core": "7.13.4",
     "@mantine/hooks": "7.13.4",
-    "@types/node": "20.5.6",
-    "@types/react": "18.3.12",
-    "@types/react-dom": "18.3.1",
     "autoprefixer": "10.4.15",
     "eslint-config-next": "15.0.2",
     "next": "15.0.2",
@@ -43,6 +40,9 @@
     "prettier": "3.0.2",
     "prettier-plugin-tailwindcss": "0.5.3",
     "ts-node": "10.9.2",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "@types/node": "20.5.6",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1"
   }
 }

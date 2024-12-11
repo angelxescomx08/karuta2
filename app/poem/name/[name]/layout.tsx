@@ -11,7 +11,8 @@ interface Params {
 
 export async function generateMetadata({ params }: Params ): Promise<Metadata> {
   const {name} = await params
-  const card = getCardBySilaba(name)
+  const card = await getCardBySilaba(name)
+
   return {
     title: `Karuta App | ${name}`,
     description: `Karuta card number ${card.id} called ${card.name} written by ${card.author}`,

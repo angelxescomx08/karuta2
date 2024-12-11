@@ -1,18 +1,18 @@
 import { cartas, type Carta, cartasArray } from "../data/cartas";
 
-export const getCardById = (id: string):Carta => {
+export const getCardById = async (id: string):Promise<Carta> => {
   return cartas.get(id) ?? cartasArray[0]
 }
 
-export const getCardBySilaba = (silaba: string):Carta => {
+export const getCardBySilaba = async (silaba: string):Promise<Carta> => {
   return cartas.get(silaba) ?? cartasArray[0]
 }
 
-export const getCardByNameOrId = (name?: string, id?: string) => {
+export const getCardByNameOrId = async (name?: string, id?: string) => {
   if (name !== undefined && name !== null) {
-    return getCardBySilaba(name)
+    return await getCardBySilaba(name)
   } else if (id !== undefined && id !== null) {
-    return getCardById(id)
+    return await getCardById(id)
   } else {
     return cartasArray[0]
   }

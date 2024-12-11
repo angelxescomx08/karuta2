@@ -25,10 +25,12 @@ describe('Card', () => {
     expect(screen.getByText(card.english)).toBeDefined()
   })
 
-  it('should call router.push when clicked', () => {
+  it('should have right href', () => {
     render(<Card carta={card} />)
-    screen.getByRole('article').click()
+    // Encuentra el enlace dentro del componente Card
+    const link = screen.getByRole('link', { name: 'link' })
 
-    expect(pushSpy).toHaveBeenCalledWith(`/poem/name/${card.silaba}`)
+    // Verifica que el atributo href es el esperado
+    expect(link.getAttribute('href')).toContain(`/poem/name/${card.silaba}`)
   })
 })

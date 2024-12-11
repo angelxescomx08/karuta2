@@ -15,11 +15,23 @@ pnpm dev
 ## Crear una imagen de Docker
 
 ```bash
-docker build -t karuta2 .
+docker build -t karuta2:1.0.0 .
 ```
 
 ## Correr la imagen de Docker
 
 ```bash
-docker container run -p 3000:3000 karuta2
+docker container run -p 3000:3000 karuta2:1.0.0
+```
+
+## Correr los tests
+
+```bash
+npm run test
+```
+
+Se pueden correr en modo watch con:
+
+```bash
+npm run test:watch
 ```

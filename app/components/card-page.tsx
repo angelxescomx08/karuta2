@@ -5,8 +5,8 @@ interface Props {
   id?: string;
 }
 
-export const CardPage = ({id,name}: Props) => {
-  const carta = getCardByNameOrId(id,name)
+export const CardPage = async ({id,name}: Props) => {
+  const carta = await getCardByNameOrId(id,name)
   return (
     <>
       <div className='col-span-12 md:col-span-4'>

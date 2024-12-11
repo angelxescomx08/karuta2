@@ -1,6 +1,5 @@
 import { CardPage } from '@/app/components/card-page';
 import { cartas } from '@/app/data/cartas';
-import { use } from 'react'
 
 export async function generateStaticParams() {
   const cards = Array.from(cartas.values())
@@ -10,12 +9,12 @@ export async function generateStaticParams() {
   }))
 }
 
-const PoemId = ({
+const PoemId = async ({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) => {
-  const { id } = use(params)
+  const { id } = await params
   return (
     <CardPage id={id}  />
   )

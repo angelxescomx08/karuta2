@@ -8,8 +8,8 @@ describe('CardPage', () => {
 
   afterEach(cleanup);
 
-  it("Should render the card page with id", () => {
-    render(<CardPage id={firstCard.id} />)
+  it("Should render the card page with id", async () => {
+    render(await CardPage({ id: firstCard.id }))
     expect(screen.getByText(`${firstCard.japanese}`.trim())).toBeDefined()
     expect(screen.getByText(`Romaji: ${firstCard.romaji}`.trim())).toBeDefined()
     expect(screen.getByText(`Author (Kanjis): ${firstCard.authorJapanese}`.trim())).toBeDefined()
@@ -20,8 +20,8 @@ describe('CardPage', () => {
     expect(screen.getByText(`${firstCard.spanish}`.trim())).toBeDefined()
   })
 
-  it("Should render the card page with name", () => {
-    render(<CardPage name={lastCard.silaba} />)
+  it("Should render the card page with name", async () => {
+    render(await CardPage({ name: lastCard.silaba}))
     expect(screen.getByText(`${lastCard.japanese}`.trim())).toBeDefined()
     expect(screen.getByText(`Romaji: ${lastCard.romaji}`.trim())).toBeDefined()
     expect(screen.getByText(`Author (Kanjis): ${lastCard.authorJapanese}`.trim())).toBeDefined()
