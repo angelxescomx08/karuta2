@@ -19,12 +19,24 @@ jest.mock("@mantine/hooks",()=>({
   useIsomorphicEffect: jest.fn().mockReturnValue(jest.fn()),
   useId: jest.fn().mockReturnValue(""),
   useUncontrolled: jest.fn().mockReturnValue(["",jest.fn()]),
+  useMediaQuery: jest.fn().mockReturnValue(false),
 }))
 
 jest.mock("@mantine/core",()=>({
   MantineProvider: jest.fn().mockImplementation(({children})=>children),
   createTheme: jest.fn().mockReturnValue({}),
   Autocomplete: jest.fn().mockReturnValue(<div></div>),
+}))
+
+jest.mock("@tanstack/react-virtual",()=>({
+  useVirtualizer: jest.fn().mockReturnValue({
+    count: 100,
+    getScrollElement: () => null,
+    estimateSize: () => 370,
+    overscan: 1,
+    getTotalSize: () => 370,
+    getVirtualItems: () => [],
+  }),
 }))
 
 const theme = createTheme({})
