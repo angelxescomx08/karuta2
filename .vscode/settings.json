@@ -1,11 +1,11 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.format.enable": true,
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "cSpell.words": ["Chihayafuru", "Karuta", "Radilla"]
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"eslint.format.enable": true,
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"cSpell.words": ["Chihayafuru", "Karuta", "Radilla"]
 }
