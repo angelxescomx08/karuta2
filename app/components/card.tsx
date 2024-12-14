@@ -12,14 +12,20 @@ export const Card = ({ carta }: props): ReactNode => {
       aria-label='link'
       href={`/poem/name/${carta.silaba}`}
       prefetch={true}
-      className='col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 bg-fondo-claro rounded-md p-5 flex flex-col justify-between cursor-pointer' 
+      className='min-h-[380px] col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3 bg-fondo-claro rounded-md p-5 flex flex-col justify-between cursor-pointer' 
     >
-      <p className='text-white/70 font-bold text-2xl [text-wrap] '>
+      <p
+        lang='ja' 
+        className='text-white/70 font-bold text-2xl [text-wrap] '>
         {carta.japanese}
       </p>
       <div className='mt-5'>
-        <p className='text-white/60 text-xl'> {carta.id}. {carta.silaba} </p>
-        <p className='text-white/50 text-md'> {carta.english} </p>
+        <p className='text-white/60 text-xl' lang='ja'> 
+          {carta.id}. {carta.silaba} 
+        </p>
+        <p className='text-white/50 text-md'> 
+          {carta.english} 
+        </p>
       </div>
     </Link>
   )

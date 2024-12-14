@@ -22,7 +22,13 @@ export const MainContent = ({ data }: props): ReactElement => {
   const is2XL = useMediaQuery('(min-width: 1536px)')
 
   const results = useMemo(() => {
-    const columnSize = (is2XL ?? false) ? 4 : (isLG ?? false) ? 3 : (isMD ?? false) ? 2 : 1
+    const columnSize = (is2XL ?? false) 
+      ? 4 
+      : (isLG ?? false) 
+        ? 3 
+        : (isMD ?? false) 
+          ? 2 
+          : 1
     return cartasArray
       .filter(
         carta =>
@@ -46,21 +52,9 @@ export const MainContent = ({ data }: props): ReactElement => {
   const rowVirtualizer = useVirtualizer({
     count: results.length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => 370, // Ajusta según el tamaño real de tus cartas
-    overscan: 5 // Mejora el pre-renderizado
+    estimateSize: () => 400, // Ajusta según el tamaño real de tus cartas
+    overscan: 1 // Mejora el pre-renderizado
   })
-
-  const skeleton = useMemo(
-    () =>
-      Array.from({ length: 5 }, (_, i) => (
-        <div key={i} className="grid grid-cols-12 gap-5">
-          {Array.from({ length: 4 }, (_, j) => (
-            <div key={j} className="bg-gray-300 h-48 w-full animate-pulse" />
-          ))}
-        </div>
-      )),
-    []
-  )
 
   return (
     <>
@@ -87,23 +81,22 @@ export const MainContent = ({ data }: props): ReactElement => {
               position: 'relative',
             }}
           >
-            {results.length > 0
-              ? rowVirtualizer.getVirtualItems().map(virtualItem => (
-                <div
-                  key={virtualItem.key}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: `${virtualItem.size}px`,
-                    transform: `translateY(${virtualItem.start}px)`,
-                  }}
-                >
-                  {results[virtualItem.index]}
-                </div>
-              ))
-              : skeleton}
+            { rowVirtualizer.getVirtualItems().map(virtualItem => (
+              <div
+                key={virtualItem.key}
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: '100%',
+                  height: `${virtualItem.size}px`,
+                  transform: `translateY(${virtualItem.start}px)`,
+                }}
+              >
+                {results[virtualItem.index]}
+              </div>
+            ))
+            }
           </div>
         </div>
       </main>

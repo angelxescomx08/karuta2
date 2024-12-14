@@ -13,15 +13,29 @@ export const CardPage = async ({id,name}: Props) => {
         <p className='text-white/70 font-bold text-2xl [text-wrap] '>
           {carta.japanese}
         </p>
-        <p className='text-white/50 text-xl'> Romaji: {carta.romaji} </p>
-        <p className='text-white/50 text-xl'> Author (Kanjis): {carta.authorJapanese} </p>
-        <p className='text-white/50 text-xl'> Author: {carta.author} </p>
-        <p className='text-white/50 text-xl'> Poem name: {carta.name} </p>
+        <p className='text-white/50 text-xl' lang='ja'> 
+          Romaji: {carta.romaji} 
+        </p>
+        <p className='text-white/50 text-xl' lang='ja'> 
+          Author (Kanjis): {carta.authorJapanese} 
+        </p>
+        <p className='text-white/50 text-xl'> 
+          Author: {carta.author} 
+        </p>
+        <p className='text-white/50 text-xl' lang='ja'> 
+          Poem name: {carta.name} 
+        </p>
       </div>
       <div className='col-span-12 md:col-span-8'>
-        <p className='text-white/60 text-2xl'> {carta.id}. {carta.silaba} </p>
-        <p className='text-white/50 text-xl'> {carta.english} </p>
-        <p className='text-white/50 text-xl'> {carta.spanish} </p>
+        <p className='text-white/60 text-2xl' lang='ja'> 
+          {carta.id}. {carta.silaba} 
+        </p>
+        <p className='text-white/50 text-xl'> 
+          {carta.english} 
+        </p>
+        <p className='text-white/50 text-xl' lang='es'> 
+          {carta.spanish} 
+        </p>
       </div>
     </>
   )
