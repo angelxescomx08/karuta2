@@ -1,5 +1,5 @@
-import { CardPage } from "@/app/components/card-page";
-import { cartas } from "@/app/data/cartas";
+import { CardPage } from '@/app/components/card-page';
+import { cartas } from '@/app/data/cartas';
 
 export async function generateStaticParams() {
   const cards = Array.from(cartas.values());
@@ -12,7 +12,7 @@ export async function generateStaticParams() {
 const PoemId = async ({
   params,
 }: {
-	params: Promise<{ id: string }>;
+  params: Promise<{ id: string }>;
 }) => {
   const { id } = await params;
   return <CardPage id={id} />;

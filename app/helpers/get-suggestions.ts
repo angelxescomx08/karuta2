@@ -1,4 +1,4 @@
-import type { Carta } from "../data/cartas";
+import type { Carta } from '../data/cartas';
 
 export const getSuggestions = async (cartas: Carta[]): Promise<string[]> => {
   const suggestions = [];

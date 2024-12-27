@@ -1,8 +1,8 @@
-import { getCardByNameOrId } from "../helpers/get-card";
+import { getCardByNameOrId } from '../helpers/get-card';
 
 interface Props {
-	name?: string;
-	id?: string;
+  name?: string;
+  id?: string;
 }
 
 export const CardPage = async ({ id, name }: Props) => {
@@ -14,14 +14,14 @@ export const CardPage = async ({ id, name }: Props) => {
           {carta.japanese}
         </p>
         <p className="text-white/50 text-xl" lang="ja">
-					Romaji: {carta.romaji}
+          Romaji: {carta.romaji}
         </p>
         <p className="text-white/50 text-xl" lang="ja">
-					Author (Kanjis): {carta.authorJapanese}
+          Author (Kanjis): {carta.authorJapanese}
         </p>
         <p className="text-white/50 text-xl">Author: {carta.author}</p>
         <p className="text-white/50 text-xl" lang="ja">
-					Poem name: {carta.name}
+          Poem name: {carta.name}
         </p>
       </div>
       <div className="col-span-12 md:col-span-8">

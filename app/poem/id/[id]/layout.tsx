@@ -1,12 +1,12 @@
-import type { ReactNode } from "react";
-import type { Metadata } from "next";
-import { CardLayout } from "@/app/layouts/CardLayout";
-import { getCardById } from "@/app/helpers/get-card";
+import { getCardById } from '@/app/helpers/get-card';
+import { CardLayout } from '@/app/layouts/CardLayout';
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 
 interface Params {
-	params: Promise<{
-		id: string;
-	}>;
+  params: Promise<{
+    id: string;
+  }>;
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -15,17 +15,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: `Karuta App | ${card.name}`,
     description: `Karuta card number ${card.id} called ${card.name} written by ${card.author}`,
-    metadataBase: new URL("https://karuta.vercel.app"),
+    metadataBase: new URL('https://karuta.vercel.app'),
     authors: {
-      name: "Jose Angel Hernandez Radilla",
+      name: 'Jose Angel Hernandez Radilla',
     },
-    creator: "Jose Angel Hernandez Radilla",
+    creator: 'Jose Angel Hernandez Radilla',
     keywords: [
-      "Karuta",
-      "Card",
-      "Chihayafuru",
-      "Anime",
-      "Sport",
+      'Karuta',
+      'Card',
+      'Chihayafuru',
+      'Anime',
+      'Sport',
       `${card.name}`,
       `${card.silaba}`,
       `${card.author}`,
@@ -33,15 +33,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     openGraph: {
       title: `Karuta App | ${card.name}`,
       description: `Karuta card number ${card.id} called ${card.name} written by ${card.author}`,
-      siteName: "Karuta App",
-      images: "/assets/imgs/chihayafuru.jpg",
+      siteName: 'Karuta App',
+      images: '/assets/imgs/chihayafuru.jpg',
     },
     twitter: {
       title: `Karuta App | ${card.name}`,
       description: `Karuta card number ${card.id} called ${card.name} written by ${card.author}`,
-      images: "/assets/imgs/chihayafuru.jpg",
-      card: "summary_large_image",
-      creator: "Jose Angel Hernandez Radilla",
+      images: '/assets/imgs/chihayafuru.jpg',
+      card: 'summary_large_image',
+      creator: 'Jose Angel Hernandez Radilla',
     },
   };
 }
@@ -49,7 +49,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default function RootLayout({
   children,
 }: {
-	children: ReactNode;
+  children: ReactNode;
 }): ReactNode {
   return <CardLayout>{children}</CardLayout>;
 }

@@ -1,5 +1,5 @@
-"use client";
-import { Skeleton } from "@mantine/core";
+'use client';
+import { Skeleton } from '@mantine/core';
 
 const CardPageSkeleton = () => {
   return (

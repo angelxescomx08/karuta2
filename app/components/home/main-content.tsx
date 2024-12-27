@@ -1,47 +1,53 @@
-"use client";
+'use client';
 
+import { cartasArray } from '@/app/data/cartas';
+import { Header } from '@/app/layouts/ui/header';
+import { useDebouncedValue, useMediaQuery } from '@mantine/hooks';
+import { useVirtualizer } from '@tanstack/react-virtual';
 import {
   type ReactElement,
-  useState,
+  type ReactNode,
   useMemo,
   useRef,
-  type ReactNode,
-} from "react";
-import { useDebouncedValue, useMediaQuery } from "@mantine/hooks";
-import { Card } from "../card";
-import { cartasArray } from "@/app/data/cartas";
-import { useVirtualizer } from "@tanstack/react-virtual";
-import { Header } from "@/app/layouts/ui/header";
+  useState,
+} from 'react';
+import { Card } from '../card';
 
-interface props {
-	data: string[];
+interface Props {
+  data: string[];
 }
 
-export const MainContent = ({ data }: props): ReactElement => {
-  const [search, setSearch] = useState<string>("");
+export const MainContent = ({ data }: Props): ReactElement => {
+  const [search, setSearch] = useState<string>('');
   const [debouncedValue] = useDebouncedValue(search, 400);
   const parentRef = useRef(null);
-  const isMD = useMediaQuery("(min-width: 768px)");
-  const isLG = useMediaQuery("(min-width: 1024px)");
-  const is2XL = useMediaQuery("(min-width: 1536px)");
+  const isMD = useMediaQuery('(min-width: 768px)');
+  const isLG = useMediaQuery('(min-width: 1024px)');
+  const is2XL = useMediaQuery('(min-width: 1536px)');
 
   const results = useMemo(() => {
     const columnSize =
-			(is2XL ?? false) ? 4 : (isLG ?? false) ? 3 : (isMD ?? false) ? 2 : 1;
+      (is2XL ?? false) ? 4 : (isLG ?? false) ? 3 : (isMD ?? false) ? 2 : 1;
     return cartasArray
       .filter(
         (carta) =>
           `${carta.id}. ${carta.silaba}`.includes(debouncedValue) ||
-					carta.name.includes(debouncedValue),
+          carta.name.includes(debouncedValue)
       )
       .reduce<ReactNode[]>((grids, _, i, arr) => {
         if (i % columnSize === 0) {
           grids.push(
-            <div key={`grid-${arr.slice(i, i + columnSize).map(carta => carta.id).join('-')}`} className="grid grid-cols-12 gap-5">
+            <div
+              key={`grid-${arr
+                .slice(i, i + columnSize)
+                .map((carta) => carta.id)
+                .join('-')}`}
+              className="grid grid-cols-12 gap-5"
+            >
               {arr.slice(i, i + columnSize).map((carta) => (
                 <Card key={carta.id} carta={carta} />
               ))}
-            </div>,
+            </div>
           );
         }
         return grids;
@@ -61,7 +67,7 @@ export const MainContent = ({ data }: props): ReactElement => {
         data={data}
         value={search}
         onChange={(value) => {
-          setSearch(value ?? "");
+          setSearch(value ?? '');
         }}
       />
       <main className="container m-auto py-5 px-2">
@@ -69,25 +75,25 @@ export const MainContent = ({ data }: props): ReactElement => {
           ref={parentRef}
           style={{
             height: 'calc(100vh - 76px)',
-            overflow: "auto",
+            overflow: 'auto',
           }}
           className="no-scrollbar"
         >
           <div
             style={{
               height: `${rowVirtualizer.getTotalSize()}px`,
-              width: "100%",
-              position: "relative",
+              width: '100%',
+              position: 'relative',
             }}
           >
             {rowVirtualizer.getVirtualItems().map((virtualItem) => (
               <div
                 key={virtualItem.key}
                 style={{
-                  position: "absolute",
+                  position: 'absolute',
                   top: 0,
                   left: 0,
-                  width: "100%",
+                  width: '100%',
                   height: `${virtualItem.size}px`,
                   transform: `translateY(${virtualItem.start}px)`,
                 }}

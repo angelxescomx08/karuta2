@@ -1,5 +1,5 @@
-import React, { type PropsWithChildren, type ReactElement } from "react";
-import { HeaderSimple } from "./ui/header-simple";
+import React, { type PropsWithChildren, type ReactElement } from 'react';
+import { HeaderSimple } from './ui/header-simple';
 
 export const CardLayout = ({ children }: PropsWithChildren): ReactElement => {
   return (

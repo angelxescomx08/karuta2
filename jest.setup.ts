@@ -1,4 +1,4 @@
-Object.defineProperty(window, "matchMedia", {
+Object.defineProperty(window, 'matchMedia', {
   writable: true,
   value: jest.fn().mockImplementation((query) => ({
     matches: false,
@@ -17,10 +17,7 @@ class MockResizeObserver {
   callback: (entries: ResizeObserverEntry[], observer: ResizeObserver) => void;
 
   constructor(
-    callback: (
-			entries: ResizeObserverEntry[],
-			observer: ResizeObserver,
-		) => void,
+    callback: (entries: ResizeObserverEntry[], observer: ResizeObserver) => void
   ) {
     this.callback = callback;
   }

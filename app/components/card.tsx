@@ -1,12 +1,12 @@
-import type { ReactNode } from "react";
-import type { Carta } from "../data/cartas";
-import Link from "next/link";
+import Link from 'next/link';
+import type { ReactNode } from 'react';
+import type { Carta } from '../data/cartas';
 
-interface props {
-	carta: Carta;
+interface Props {
+  carta: Carta;
 }
 
-export const Card = ({ carta }: props): ReactNode => {
+export const Card = ({ carta }: Props): ReactNode => {
   return (
     <Link
       aria-label="link"
